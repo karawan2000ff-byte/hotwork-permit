@@ -111,10 +111,38 @@
   .saved-note{font-size:12px;color:#dfffe9;}
 
   @media(max-width:680px){
-    .checks,.checks.c3{grid-template-columns:1fr 1fr;}
+    html,body{overflow-x:hidden;max-width:100%;}
+    body{font-size:14px;}
+    .page{padding:14px 12px;overflow-x:hidden;}
+    .sec-body{padding:10px 10px;}
+    /* ตัดคำภาษาไทย (ไม่มีเว้นวรรค) ทุกจุด กันข้อความล้นขอบขวา */
+    .page,.page *{overflow-wrap:anywhere;word-break:break-word;}
+    .checks,.checks.c3{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+    .chk{min-width:0;}
     .sign-grid,.sign-grid.g3{grid-template-columns:1fr;}
-    .sec-tag{writing-mode:horizontal-tb;transform:none;border-right:none;border-bottom:1.3px solid var(--border);}
+    .sec-tag{writing-mode:horizontal-tb;transform:none;border-right:none;
+             border-bottom:1.3px solid var(--border);letter-spacing:0;padding:6px;font-size:13px;}
     .flexrow{flex-direction:column;}
+
+    /* ---- หัวฟอร์ม: เรียงลงมาเป็นชั้น ไม่ให้ทับกัน ---- */
+    .head{padding-bottom:8px;}
+    .head .book,.head .formcode{position:static;justify-content:center;text-align:center;}
+    .head .book{margin-bottom:4px;}
+    .head .company{margin-top:6px;font-size:15px;line-height:1.35;}
+    .head .title{font-size:13.5px;line-height:1.35;}
+    .head .formcode{margin-top:6px;font-size:11px;color:#666;}
+
+    /* ---- ป้ายกำกับยาวๆ ให้ตัดขึ้นบรรทัดใหม่แทนล้นขอบ ---- */
+    .f .cap{white-space:normal;}
+    label.f{gap:4px 6px;}
+    input[type=text],input[type=number],input[type=date],input[type=time]{max-width:100%;}
+    .grow{min-width:70px;}
+
+    /* ---- ตารางตรวจสอบ ให้กระชับ ---- */
+    table.chklist{font-size:12.5px;table-layout:fixed;}
+    table.chklist th,table.chklist td{padding:4px;overflow-wrap:anywhere;word-break:break-word;}
+    table.chklist thead th{font-size:11.5px;}
+    table.chklist td.opt{width:38px;}
   }
   @media print{
     .toolbar{display:none;}
