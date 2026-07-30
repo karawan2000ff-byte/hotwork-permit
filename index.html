@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ใบอนุญาตปฏิบัติงานที่ก่อให้เกิดความร้อนและประกายไฟ (Hot Work Permit) — MP-FM-8002-001</title>
+<style>
+  :root{
+    --line:#111;
+    --border:#000;
+    --muted:#555;
+    --accent:#0b5d3b;
+    --accent2:#c9a227;
+    --bg:#e9edf1;
+    --paper:#fff;
+    --field:#fffdf5;
+    --field-border:#9aa3ab;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"TH Sarabun New","Sarabun","Segoe UI","Tahoma",sans-serif;
+    background:var(--bg);
+    color:var(--line);
+    font-size:15px;
+    line-height:1.5;
+  }
+  .toolbar{
+    position:sticky;top:0;z-index:50;
+    background:var(--accent);
+    color:#fff;
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    padding:10px 16px;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+  }
+  .toolbar h1{font-size:16px;margin:0 auto 0 0;font-weight:700;}
+  .toolbar .code{font-size:12px;opacity:.85;font-weight:400;}
+  .btn{
+    border:0;border-radius:6px;padding:8px 14px;font-size:14px;font-weight:600;
+    cursor:pointer;background:#fff;color:var(--accent);font-family:inherit;
+  }
+  .btn:hover{background:#f0f0f0;}
+  .btn.gold{background:var(--accent2);color:#3a2e00;}
+  .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6);}
+
+  .page{
+    max-width:900px;margin:18px auto;background:var(--paper);
+    border:1.5px solid var(--border);
+    padding:22px 26px 30px;
+    box-shadow:0 4px 20px rgba(0,0,0,.15);
+  }
+  .head{position:relative;text-align:center;border-bottom:2px solid var(--border);padding-bottom:8px;margin-bottom:12px;}
+  .head .formcode{position:absolute;right:0;top:0;font-size:12px;}
+  .head .book{position:absolute;left:0;top:0;font-size:13px;display:flex;gap:4px;align-items:center;}
+  .head .company{font-weight:700;font-size:17px;margin-top:20px;}
+  .head .title{font-weight:700;font-size:16px;margin-top:2px;}
+
+  .section{border:1.3px solid var(--border);border-top:none;}
+  .section:first-of-type{border-top:1.3px solid var(--border);}
+  .sec-body{padding:10px 12px;}
+  .sec-tag{
+    writing-mode:vertical-rl;transform:rotate(180deg);
+    background:#f3f3ef;border-right:1.3px solid var(--border);
+    font-weight:700;font-size:13px;text-align:center;padding:6px 3px;
+    display:flex;align-items:center;justify-content:center;letter-spacing:1px;
+  }
+  .flexrow{display:flex;}
+  .flexrow > .sec-body{flex:1;}
+
+  h3.blk{font-weight:700;margin:12px 0 6px;font-size:15px;}
+  h4.blk{font-weight:700;margin:8px 0 4px;font-size:14px;}
+
+  label.f{display:inline-flex;align-items:baseline;gap:5px;flex-wrap:wrap;margin:2px 0;}
+  .f .cap{white-space:nowrap;}
+  input[type=text],input[type=number],input[type=date],input[type=time],textarea{
+    font-family:inherit;font-size:14px;border:none;border-bottom:1px dotted var(--field-border);
+    background:var(--field);padding:2px 5px;min-width:60px;
+  }
+  input:focus,textarea:focus{outline:none;border-bottom:1.5px solid var(--accent);background:#fff;}
+  .grow{flex:1;min-width:120px;}
+  textarea{width:100%;border:1px solid var(--field-border);border-radius:4px;resize:vertical;min-height:38px;}
+
+  .checks{display:grid;grid-template-columns:repeat(4,1fr);gap:4px 10px;margin:4px 0;}
+  .checks.c3{grid-template-columns:repeat(3,1fr);}
+  .checks.c2{grid-template-columns:repeat(2,1fr);}
+  .chk{display:flex;align-items:flex-start;gap:6px;font-size:14px;}
+  .chk input[type=checkbox]{width:16px;height:16px;margin-top:2px;flex:none;accent-color:var(--accent);}
+  .chk .inline-in{flex:1;}
+
+  .note{font-size:13px;color:var(--muted);margin:6px 0;}
+  .hi-areas{font-size:13.5px;background:#faf7ec;border:1px solid #e6dcb5;border-radius:5px;padding:6px 9px;margin:6px 0;}
+
+  table.chklist{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px;}
+  table.chklist th,table.chklist td{border:1px solid var(--border);padding:5px 7px;vertical-align:middle;}
+  table.chklist thead th{background:#f3f3ef;text-align:center;font-weight:700;}
+  table.chklist td.item{width:auto;}
+  table.chklist td.opt{width:80px;text-align:center;}
+  table.chklist input[type=radio]{width:16px;height:16px;accent-color:var(--accent);}
+  table.chklist .subin{border-bottom:1px dotted var(--field-border);background:var(--field);}
+
+  .sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;margin-top:12px;}
+  .sign-grid.g3{grid-template-columns:repeat(3,1fr);}
+  .sign{display:flex;flex-direction:column;gap:3px;font-size:13.5px;}
+  .sign .role{text-align:center;font-weight:600;margin-top:2px;}
+  .declare{font-weight:600;margin:10px 0 2px;}
+
+  .subhead{font-weight:700;background:#f3f3ef;border:1px solid var(--border);border-bottom:none;padding:5px 10px;font-size:14px;}
+  .subbox{border:1px solid var(--border);padding:9px 12px;}
+
+  .badge{display:inline-block;background:#fdecea;color:#a12;border:1px solid #f3b7b0;border-radius:4px;font-size:12px;padding:1px 7px;margin-left:6px;}
+  .saved-note{font-size:12px;color:#dfffe9;}
+
+  @media(max-width:680px){
+    .checks,.checks.c3{grid-template-columns:1fr 1fr;}
+    .sign-grid,.sign-grid.g3{grid-template-columns:1fr;}
+    .sec-tag{writing-mode:horizontal-tb;transform:none;border-right:none;border-bottom:1.3px solid var(--border);}
+    .flexrow{flex-direction:column;}
+  }
+  @media print{
+    .toolbar{display:none;}
+    body{background:#fff;font-size:13px;}
+    .page{box-shadow:none;margin:0;border:none;max-width:none;padding:6mm;}
+    input,textarea{background:transparent;}
+    .hi-areas{background:transparent;}
+    .section{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <h1>Hot Work Permit — กรอกข้อมูล <span class="code">MP-FM-8002-001/02</span></h1>
+  <span id="savedNote" class="saved-note"></span>
+  <button class="btn" onclick="saveData()">💾 บันทึก</button>
+  <button class="btn ghost" onclick="loadData()">↺ เรียกคืน</button>
+  <button class="btn ghost" onclick="clearData()">🗑 ล้างฟอร์ม</button>
+  <button class="btn" style="background:#1a73e8;color:#fff" onclick="sendToSheet()">☁️ ส่งเข้า Google Sheet</button>
+  <button class="btn gold" onclick="exportJSON()">⭳ ส่งออก JSON</button>
+  <button class="btn gold" onclick="window.print()">🖨 พิมพ์ / บันทึก PDF</button>
+</div>
+
+<form id="permit" class="page" autocomplete="off">
+
+  <!-- ===== HEADER ===== -->
+  <div class="head">
+    <div class="book">เล่มที่ <input type="text" name="book_no" style="width:70px" value=""></div>
+    <div class="formcode">MP-FM-8002-001/02</div>
+    <div class="company">บริษัท น้ำตาลมิตรผล จำกัด และบริษัทในเครือ</div>
+    <div class="title">ใบอนุญาตปฏิบัติงานที่ก่อให้เกิดความร้อนและประกายไฟ (HOT WORK PERMIT)</div>
+  </div>
+
+  <!-- ===== PART 1: ผู้ขออนุญาต ===== -->
+  <div class="section flexrow">
+    <div class="sec-tag">ผู้ขออนุญาต / ผู้ควบคุมงานของผู้รับเหมา</div>
+    <div class="sec-body">
+      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:4px;">
+        <span class="cap"><b>ผู้ขออนุญาต</b></span>
+        <label class="chk" style="align-items:baseline;"><input type="checkbox" name="req_employee">
+          <span>พนักงานบริษัท แผนก <input type="text" name="req_dept" style="width:150px"></span></label>
+        <label class="chk" style="align-items:baseline;"><input type="checkbox" name="req_contractor">
+          <span>ผู้รับเหมา บริษัท <input type="text" name="req_company" style="width:150px"></span></label>
+      </div>
+      <label class="f"><span class="cap">ผู้ขออนุญาต ชื่อ</span><input type="text" name="req_name" class="grow">
+        <span class="cap">ตำแหน่ง</span><input type="text" name="req_position" class="grow"></label>
+      <label class="f"><span class="cap">จำนวนผู้ปฏิบัติงาน</span><input type="number" name="worker_count" style="width:70px"><span class="cap">คน&nbsp;&nbsp;ขอปฏิบัติงานที่ก่อให้เกิดความร้อน/ประกายไฟ (Hot work) สถานที่ปฏิบัติงาน</span><input type="text" name="work_place" class="grow"></label>
+      <label class="f"><span class="cap">รายละเอียดของงาน</span><input type="text" name="work_detail" class="grow"></label>
+      <label class="f"><span class="cap">วันที่</span><input type="date" name="work_date">
+        <span class="cap">เวลา</span><input type="time" name="work_time_start"><span class="cap">น. ถึงเวลา</span><input type="time" name="work_time_end"><span class="cap">น.</span></label>
+
+      <h3 class="blk">1. วิธีการ อุปกรณ์ป้องกันและอุปกรณ์คุ้มครองความปลอดภัยส่วนบุคคล (PPE) เพื่อให้เหมาะสมและปลอดภัย ดังนี้</h3>
+
+      <h4 class="blk">1.1 พื้นฐาน</h4>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="ppe_shoes"><span>รองเท้านิรภัย</span></label>
+        <label class="chk"><input type="checkbox" name="ppe_glasses"><span>แว่นตาลดแสง</span></label>
+        <label class="chk"><input type="checkbox" name="ppe_helmet"><span>หมวกนิรภัย</span></label>
+        <label class="chk"><input type="checkbox" name="ppe_belt"><span>เข็มขัดนิรภัย (สำหรับงานที่สูง)</span></label>
+        <label class="chk"><input type="checkbox" name="ppe_mask"><span>หน้ากากป้องกันฝุ่น/ก๊าซ</span></label>
+        <label class="chk"><input type="checkbox" name="ppe_weldshield"><span>กระบังหน้างานเชื่อม</span></label>
+        <label class="chk"><input type="checkbox" name="ppe_flashback"><span>ถังแก๊สติดอุปกรณ์ป้องกันไฟย้อนกลับ</span></label>
+        <label class="chk"><input type="checkbox" name="ppe_gloves"><span>ถุงมือหนัง/เอี๊ยมหนัง</span></label>
+        <label class="chk" style="grid-column:span 2"><input type="checkbox" name="ppe_earmuff"><span>ที่ครอบหู/อุดหู (ในพื้นที่ที่มีเสียงดังเกิน 85 dBA)</span></label>
+      </div>
+
+      <h4 class="blk">1.2 ตามลักษณะงาน/พื้นที่</h4>
+      <div class="hi-areas"><b>(1) พื้นที่เสี่ยงสูง 7 พื้นที่ คือ</b> 1. กองชานอ้อย, 2. คลังสินค้า, 3. หม้อไอน้ำ, 4. พัสดุ, 5. บริเวณพื้นที่จัดเก็บน้ำมันต่างๆ, 6. บริเวณพื้นที่จัดเก็บโมลาส, 7. Conditioning Silo</div>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="h1_riskassess"><span>การประเมินอันตรายก่อนเริ่มงาน</span></label>
+        <label class="chk"><input type="checkbox" name="h1_hose"><span>สายฉีดน้ำดับเพลิง พร้อมใช้งาน</span></label>
+        <label class="chk"><input type="checkbox" name="h1_firetruck"><span>รถน้ำดับเพลิง พร้อมใช้งาน</span></label>
+        <label class="chk"><input type="checkbox" name="h1_watcher"><span>ผู้ยืนระวังภัย อย่างน้อย 1 คน</span></label>
+        <label class="chk"><input type="checkbox" name="h1_fireblanket"><span>ผ้ากันไฟ</span></label>
+        <label class="chk" style="grid-column:span 2"><input type="checkbox" name="h1_ext2"><span>ถังดับเพลิง 2 ถัง 15 ปอนด์</span></label>
+        <label class="chk"><input type="checkbox" name="h1_spray"><span>ฉีดพรมน้ำกองชานอ้อย ระยะอย่างน้อยรัศมี 50 เมตร</span></label>
+        <label class="chk"><input type="checkbox" name="h1_signs"><span>ป้ายเตือนต่างๆ</span></label>
+      </div>
+
+      <div class="note"><b>(2) พื้นที่เสี่ยงอื่นๆ นอกเหนือข้อ (1)</b></div>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" name="h2_riskassess"><span>การประเมินอันตรายก่อนเริ่มงาน</span></label>
+        <label class="chk"><input type="checkbox" name="h2_ext1"><span>ถังดับเพลิง 1 ถัง 15 ปอนด์</span></label>
+        <label class="chk"><input type="checkbox" name="h2_sparkguard"><span>อุปกรณ์ป้องกันสะเก็ดไฟ</span></label>
+        <label class="chk"><input type="checkbox" name="h2_other"><span>อื่นๆ <input type="text" name="h2_other_text" class="inline-in"></span></label>
+      </div>
+
+      <div class="note">งานที่เกี่ยวข้องกับระบบไฟฟ้าหรืออุปกรณ์ควบคุม ต้องได้รับการพิจารณาอนุญาต และตัดแยกระบบจากผู้รับผิดชอบงานบำรุงรักษาอุปกรณ์นั้น ๆ ก่อน</div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:baseline;">
+        <label class="chk"><input type="checkbox" name="elec_none"><span>ไม่เกี่ยวข้อง</span></label>
+        <label class="chk"><input type="checkbox" name="elec_related"><span>เกี่ยวข้อง</span></label>
+        <label class="f"><span class="cap">ได้รับอนุญาตและตัดแยกระบบจาก ลงชื่อ</span><input type="text" name="elec_signoff" class="grow">
+          <span class="cap">วันที่</span><input type="date" name="elec_date"></label>
+      </div>
+
+      <!-- Checklist table -->
+      <table class="chklist">
+        <thead>
+          <tr>
+            <th rowspan="2">รายการตรวจสอบก่อนการปฏิบัติงาน</th>
+            <th colspan="3">ผู้ขออนุญาต/ผู้ควบคุมงานของผู้รับเหมา</th>
+          </tr>
+          <tr><th class="opt">เรียบร้อย</th><th class="opt">ไม่เรียบร้อย</th><th class="opt">ไม่เกี่ยวข้อง</th></tr>
+        </thead>
+        <tbody id="checklistBody"></tbody>
+      </table>
+
+      <div class="declare">ข้าพเจ้าเข้าใจในสิ่งที่ต้องปฏิบัติดี และผู้ปฏิบัติงานจะถือปฏิบัติโดยเคร่งครัด</div>
+      <div class="sign-grid">
+        <div class="sign">
+          <label class="f"><span class="cap">ลงชื่อ</span><input type="text" name="s1_sign" class="grow"></label>
+          <label class="f"><span class="cap">(</span><input type="text" name="s1_name" class="grow"><span class="cap">) ตัวบรรจง</span></label>
+          <label class="f"><span class="cap">วันที่</span><input type="date" name="s1_date"></label>
+          <div class="role">ผู้ขออนุญาต/ผู้ควบคุมงานของผู้รับเหมา</div>
+        </div>
+        <div class="sign">
+          <label class="f"><span class="cap">ลงชื่อ</span><input type="text" name="s2_sign" class="grow"></label>
+          <label class="f"><span class="cap">(</span><input type="text" name="s2_name" class="grow"><span class="cap">) ตัวบรรจง</span></label>
+          <label class="f"><span class="cap">วันที่</span><input type="date" name="s2_date"></label>
+          <div class="role">ผู้ควบคุมดูแลงาน</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PART 2: ผู้อนุญาต ===== -->
+  <div class="section flexrow">
+    <div class="sec-tag">ผู้อนุญาต</div>
+    <div class="sec-body">
+      <div class="subhead">การอนุญาต</div>
+      <div class="subbox">
+        <label class="chk" style="align-items:baseline;margin-bottom:6px;"><input type="checkbox" name="ap_deny">
+          <span>ไม่อนุญาต เนื่องจาก <input type="text" name="ap_deny_reason" class="grow" style="width:420px"></span></label>
+        <label class="chk" style="align-items:baseline;"><input type="checkbox" name="ap_allow">
+          <span>อนุญาตให้ปฏิบัติงานโดยได้ตรวจสอบพื้นที่ปฏิบัติงานเรียบร้อยแล้ว จึงเห็นสมควรให้ปฏิบัติงาน</span></label>
+        <label class="f" style="margin-left:22px;"><span class="cap">ในวันที่</span><input type="date" name="ap_date">
+          <span class="cap">ช่วงเวลา</span><input type="time" name="ap_time_start"><span class="cap">ถึง</span><input type="time" name="ap_time_end"></label>
+        <label class="f" style="margin-left:22px;"><span class="cap">โดยมีข้อเสนอแนะ และสิ่งที่ต้องระวังเพิ่มเติม คือ</span><input type="text" name="ap_advice" class="grow"></label>
+
+        <div class="sign-grid">
+          <div class="sign">
+            <label class="f"><span class="cap">ลงชื่อ</span><input type="text" name="ap1_sign" class="grow"></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="ap1_name" class="grow"><span class="cap">) ตัวบรรจง</span></label>
+            <label class="f"><span class="cap">วันที่</span><input type="date" name="ap1_date"></label>
+            <div class="role">ผู้อนุญาต (เจ้าของพื้นที่)</div>
+          </div>
+          <div class="sign">
+            <label class="f"><span class="cap">ลงชื่อ</span><input type="text" name="ap2_sign" class="grow"></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="ap2_name" class="grow"><span class="cap">) ตัวบรรจง</span></label>
+            <label class="f"><span class="cap">วันที่</span><input type="date" name="ap2_date"></label>
+            <div class="role">จป. วิชาชีพ/ผู้ที่ได้รับมอบหมาย</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subhead" style="border-top:none;margin-top:10px;">การตรวจสอบระหว่างการทำงาน</div>
+      <div class="subbox">
+        <div class="note">จากการตรวจสอบรายการที่ขออนุญาตไว้ข้างบน และวิธีการทำงาน ได้ตรวจสอบแล้วเห็นว่า</div>
+        <label class="chk" style="margin-bottom:4px;"><input type="checkbox" name="dur_safe"><span>ปลอดภัย อนุญาตให้ทำงานต่อได้</span></label>
+        <label class="chk" style="align-items:baseline;"><input type="checkbox" name="dur_unsafe">
+          <span>ไม่ปลอดภัย ต้องแก้ไขดังนี้ <input type="text" name="dur_fix" class="grow" style="width:420px"></span></label>
+        <div class="sign-grid">
+          <div class="sign">
+            <label class="f"><span class="cap">ลงชื่อ</span><input type="text" name="dur1_sign" class="grow"></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="dur1_name" class="grow"><span class="cap">) ตัวบรรจง</span></label>
+            <label class="f"><span class="cap">วันที่</span><input type="date" name="dur1_date"></label>
+            <div class="role">ผู้อนุญาต (เจ้าของพื้นที่)</div>
+          </div>
+          <div class="sign">
+            <label class="f"><span class="cap">ลงชื่อ</span><input type="text" name="dur2_sign" class="grow"></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="dur2_name" class="grow"><span class="cap">) ตัวบรรจง</span></label>
+            <label class="f"><span class="cap">วันที่</span><input type="date" name="dur2_date"></label>
+            <div class="role">จป. วิชาชีพ/ผู้ที่ได้รับมอบหมาย</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PART 3: เพิ่มเวลา / ปิดงาน ===== -->
+  <div class="section flexrow">
+    <div class="sec-tag">การเพิ่มเวลา / ปิดงาน</div>
+    <div class="sec-body">
+      <div class="subhead">เพิ่มเวลา</div>
+      <div class="subbox">
+        <label class="chk" style="align-items:baseline;"><input type="checkbox" name="ext_flag">
+          <span>ยังดำเนินการไม่แล้วเสร็จ และขอเพิ่มเวลาอีก <input type="number" name="ext_hours" style="width:60px"> ชั่วโมง
+          ตั้งแต่เวลา <input type="time" name="ext_from"> น. ถึงเวลา <input type="time" name="ext_to"> น. (ไม่เกิน 4 ชั่วโมง)</span></label>
+        <div class="sign-grid">
+          <div class="sign">
+            <label class="f"><span class="cap">ลงชื่อ</span><input type="text" name="ext1_sign" class="grow"><span class="cap">เวลา</span><input type="time" name="ext1_time"><span class="cap">น.</span></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="ext1_name" class="grow"><span class="cap">)</span></label>
+            <div class="role">ผู้ขออนุญาต/ผู้ควบคุมงานของผู้รับเหมา</div>
+          </div>
+          <div class="sign">
+            <label class="f"><span class="cap">ลงชื่อ</span><input type="text" name="ext2_sign" class="grow"><span class="cap">เวลา</span><input type="time" name="ext2_time"><span class="cap">น.</span></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="ext2_name" class="grow"><span class="cap">)</span></label>
+            <div class="role">ผู้อนุญาต (เจ้าของพื้นที่)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subhead" style="border-top:none;margin-top:10px;">ปิดงาน</div>
+      <div class="subbox">
+        <label class="chk" style="align-items:baseline;"><input type="checkbox" name="close_flag">
+          <span>ผู้ปฏิบัติงานได้ปฏิบัติงานแล้วเสร็จ ได้ทำความสะอาดพื้นที่ทำงานเรียบร้อยแล้ว และมีผู้เฝ้าระวังไฟต่อเนื่องจนครบ 60 นาที
+          เมื่อวันที่ <input type="date" name="close_date"></span></label>
+        <div class="sign-grid g3">
+          <div class="sign">
+            <label class="f"><span class="cap">①ลงชื่อ</span><input type="text" name="close1_sign" class="grow"></label>
+            <label class="f"><span class="cap">เวลา</span><input type="time" name="close1_time"><span class="cap">น.</span></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="close1_name" class="grow"><span class="cap">)</span></label>
+            <div class="role">ผู้ขออนุญาต/ผู้ควบคุมงานของผู้รับเหมา</div>
+          </div>
+          <div class="sign">
+            <label class="f"><span class="cap">②ลงชื่อ</span><input type="text" name="close2_sign" class="grow"></label>
+            <label class="f"><span class="cap">เวลา</span><input type="time" name="close2_time"><span class="cap">น.</span></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="close2_name" class="grow"><span class="cap">)</span></label>
+            <div class="role">ผู้อนุญาต (เจ้าของพื้นที่)</div>
+          </div>
+          <div class="sign">
+            <label class="f"><span class="cap">③ลงชื่อ</span><input type="text" name="close3_sign" class="grow"></label>
+            <label class="f"><span class="cap">เวลา</span><input type="time" name="close3_time"><span class="cap">น.</span></label>
+            <label class="f"><span class="cap">(</span><input type="text" name="close3_name" class="grow"><span class="cap">)</span></label>
+            <div class="role">ผู้เฝ้าระวังไฟ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+<script>
+  // ============================================================
+  //  ตั้งค่า Google Sheet
+  //  วาง URL ที่ได้จากการ Deploy Apps Script (ลงท้ายด้วย /exec) ตรงนี้
+  //  เช่น  "https://script.google.com/macros/s/AKfyc...../exec"
+  // ============================================================
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwla0dUPwymApS1IMGn6qnTHSKyHqP3lqpf34npYr_EkuM72UDAlWfC4bRnZu5DmYLw/exec";
+
+  // ---- Checklist rows ----
+  const checklistItems = [
+    "ได้ทำความสะอาดอุปกรณ์/พื้นที่ปฏิบัติงานและใกล้เคียงจนปราศจากสารเคมี สารไวไฟ วัสดุที่ติดไฟ หรือฝุ่น",
+    "มีการตัดแยกระบบไฟฟ้า ระบบควบคุมต่างๆ",
+    "มีการเตรียมอุปกรณ์ดับเพลิงไว้พร้อมใช้งาน ตามข้อ 1.2 ลักษณะงาน/พื้นที่เสี่ยง",
+    {t:"มีการเตรียมอุปกรณ์ป้องกันสะเก็ดไฟ เช่น ผ้ากันไฟ ฉากกั้น อื่นๆ (ระบุ)", sub:"ck4_spec"},
+    {t:"มีผู้ยืนระวังภัย เพื่อตรวจสอบการกระเด็นของสะเก็ดไฟ ชื่อ", sub:"ck5_name"},
+    "มีการตรวจสอบเครื่องมือ/อุปกรณ์ให้อยู่สภาพปลอดภัย",
+    "มีการกั้นแยกพื้นที่ป้องกันอันตรายจากผู้ที่ไม่เกี่ยวข้อง",
+    "มีการยืนยันกับแผนกที่รับผิดชอบว่าปั๊มน้ำดับเพลิงและรถดับเพลิงพร้อมใช้งาน"
+  ];
+  const tbody = document.getElementById('checklistBody');
+  checklistItems.forEach((it,i)=>{
+    const n = i+1;
+    const isObj = typeof it === 'object';
+    const text = isObj ? it.t : it;
+    const sub = isObj ? `<input type="text" name="${it.sub}" class="subin grow" style="min-width:120px">` : '';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="item">${n}. ${text} ${sub}</td>
+      <td class="opt"><input type="radio" name="ck${n}" value="เรียบร้อย"></td>
+      <td class="opt"><input type="radio" name="ck${n}" value="ไม่เรียบร้อย"></td>
+      <td class="opt"><input type="radio" name="ck${n}" value="ไม่เกี่ยวข้อง"></td>`;
+    tbody.appendChild(tr);
+  });
+
+  // ---- Storage ----
+  const KEY = 'mp_hotwork_permit_v1';
+  const form = document.getElementById('permit');
+
+  function collect(){
+    const data = {};
+    form.querySelectorAll('input,textarea').forEach(el=>{
+      if(el.type==='checkbox'){ data[el.name]=el.checked; }
+      else if(el.type==='radio'){ if(el.checked) data[el.name]=el.value; }
+      else { if(el.name) data[el.name]=el.value; }
+    });
+    return data;
+  }
+  function apply(data){
+    form.querySelectorAll('input,textarea').forEach(el=>{
+      if(!(el.name in data)) return;
+      if(el.type==='checkbox'){ el.checked = !!data[el.name]; }
+      else if(el.type==='radio'){ el.checked = (el.value===data[el.name]); }
+      else { el.value = data[el.name]; }
+    });
+  }
+  function stamp(msg){
+    const n=document.getElementById('savedNote');
+    n.textContent=msg; setTimeout(()=>{if(n.textContent===msg)n.textContent='';},3500);
+  }
+  function saveData(){ localStorage.setItem(KEY, JSON.stringify(collect())); stamp('บันทึกแล้ว ✓ '+new Date().toLocaleString('th-TH')); }
+  function loadData(){
+    const raw=localStorage.getItem(KEY);
+    if(!raw){ stamp('ยังไม่มีข้อมูลที่บันทึกไว้'); return; }
+    apply(JSON.parse(raw)); stamp('เรียกคืนข้อมูลแล้ว ✓');
+  }
+  function clearData(){
+    if(!confirm('ล้างข้อมูลทั้งหมดในฟอร์ม?')) return;
+    form.reset(); stamp('ล้างฟอร์มแล้ว');
+  }
+  function exportJSON(){
+    const blob=new Blob([JSON.stringify(collect(),null,2)],{type:'application/json'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='hotwork-permit-'+(form.book_no.value||'draft')+'.json';
+    a.click(); URL.revokeObjectURL(a.href);
+    stamp('ส่งออก JSON แล้ว ✓');
+  }
+
+  // ---- ส่งเข้า Google Sheet ----
+  async function sendToSheet(){
+    if(!SHEET_URL){
+      alert('ยังไม่ได้ตั้งค่า Google Sheet\n\nเปิดไฟล์ index.html แล้วนำ URL ที่ได้จากการ Deploy Apps Script\nมาวางที่บรรทัด  const SHEET_URL = "..."\n(ดูวิธีทำในไฟล์ GoogleAppsScript_Code.gs)');
+      return;
+    }
+    if(!confirm('ยืนยันส่งข้อมูลใบอนุญาตนี้เข้า Google Sheet?')) return;
+    const data = collect();
+    data._device = navigator.userAgent;
+    stamp('⏳ กำลังส่งเข้า Google Sheet...');
+    try{
+      const res = await fetch(SHEET_URL, {
+        method:'POST',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify(data)
+      });
+      let ok = res.ok;
+      try{ const j = await res.json(); ok = j.ok; }catch(_){}
+      if(ok){ saveData(); stamp('✅ ส่งเข้า Google Sheet แล้ว'); }
+      else { stamp('❌ ส่งไม่สำเร็จ ลองใหม่อีกครั้ง'); }
+    }catch(err){
+      // บางเครือข่ายบล็อกการอ่านคำตอบ (CORS) — ส่งซ้ำแบบ no-cors
+      try{
+        await fetch(SHEET_URL, {method:'POST', mode:'no-cors',
+          headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data)});
+        saveData(); stamp('✅ ส่งแล้ว (โปรดตรวจยืนยันใน Google Sheet)');
+      }catch(e2){ stamp('❌ ส่งไม่สำเร็จ: '+err.message); }
+    }
+  }
+
+  // Auto-save draft on change; auto-load on start
+  form.addEventListener('change', ()=>localStorage.setItem(KEY+'_draft', JSON.stringify(collect())));
+  window.addEventListener('DOMContentLoaded', ()=>{
+    const d=localStorage.getItem(KEY+'_draft');
+    if(d) try{apply(JSON.parse(d));}catch(e){}
+  });
+</script>
+</body>
+</html>
